@@ -11,23 +11,33 @@
  */
 var middleNode = function(head) {
 
-    var count = 0;
+//     var count = 0;
 
-    var temp = head;
+//     var temp = head;
 
-    while(temp.next !== null){
-        temp = temp.next;
-        count++;
-    }
+//     while(temp.next !== null){
+//         temp = temp.next;
+//         count++;
+//     }
 
-    var n = (count/2);
+//     var n = (count/2);
 
-   temp = head;
-   for(var i = 0; i < n; i++){
-       temp = temp.next;
-   }
+//    temp = head;
+//    for(var i = 0; i < n; i++){
+//        temp = temp.next;
+//    }
 
-    return temp;
+//     return temp;
     
+    var slow = head;
+var fast = head;
+
+while (fast !== null && fast.next !== null) {
+    slow = slow.next;
+    fast = fast.next.next;
+}
+
+return slow;
+
 
 };
