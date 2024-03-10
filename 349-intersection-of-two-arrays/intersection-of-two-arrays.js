@@ -5,20 +5,16 @@
  */
 var intersection = function(nums1, nums2) {
 
-    var arr = nums1.length > nums2.length ? nums2 : nums1;
-    var arr2 = nums1.length > nums2.length ? nums1 : nums2;
+    let set1 = new Set(nums1)
+let intersectionSet = new Set()
 
-    var ans = [];
-
-
-    for(var i = 0; i < nums2.length; i++){
-
-        if(arr2.includes(arr[i]) && !ans.includes(arr[i])){
-            ans.push(arr[i]);
-        }
+for(let i=0;i<nums2.length;i++){
+    if(set1.has(nums2[i])){
+        intersectionSet.add(nums2[i])
     }
+}
 
-    return ans
+return Array.from(intersectionSet)
 
 
     
