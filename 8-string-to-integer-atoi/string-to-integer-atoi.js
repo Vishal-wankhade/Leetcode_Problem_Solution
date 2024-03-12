@@ -17,7 +17,7 @@ var myAtoi = function(s) {
         sign = -1;
     }
     while (i < s.length && /^\d$/.test(s[i])) {
-        num = num * 10 + parseInt(s[i]);
+        num = num * 10 + Number(s[i]);
         i++;
     }
     num *= sign;
