@@ -12,7 +12,7 @@
  */
 var hasCycle = function(head) {
 
-    var slow = head;
+var slow = head;
     var fast = head;
 
     while(fast && fast.next){
@@ -23,6 +23,6 @@ var hasCycle = function(head) {
         }
     }
     return false;
- 
+
     
 };
