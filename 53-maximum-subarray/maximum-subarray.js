@@ -3,7 +3,7 @@
  * @return {number}
  */
 var maxSubArray = function(nums) {
-//  
+    //  
 var sum = 0;
 var max =-Infinity;
 var n = nums.length;
@@ -26,5 +26,4 @@ for(var i = 0; i < n; i++){
 }
 
 return max;
-  
 };
