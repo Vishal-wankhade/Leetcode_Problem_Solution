@@ -4,26 +4,21 @@
  */
 var maxSubArray = function(nums) {
     //  
-var sum = 0;
-var max =-Infinity;
-var n = nums.length;
+   var sum = 0;
 
-for(var i = 0; i < n; i++){
-   
-   sum += nums[i];
+   var max = -Infinity;
 
-  if(sum > max){
-      max = sum;
-  }
-   if(sum < 0){
-       sum = 0;
+   for(var i =0; i < nums.length; i++){
+      sum += nums[i];
+
+      max = Math.max(max,sum)
+
+      if(sum < 0 ){
+        sum = 0;
+      }
+
+     
+      
    }
-
-  
-
-
-
-}
-
-return max;
+   return max;
 };
