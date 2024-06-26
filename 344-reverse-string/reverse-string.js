@@ -3,5 +3,14 @@
  * @return {void} Do not return anything, modify s in-place instead.
  */
 var reverseString = function(s) {
-      s.reverse()
+    var i = 0;
+    var j = s.length-1;
+
+    while(i < j){
+        [s[i],s[j]] = [s[j],s[i]];
+        i++;
+        j--;
+    }
+    
+
 };
