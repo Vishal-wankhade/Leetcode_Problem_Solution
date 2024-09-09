@@ -3,26 +3,31 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
+    
+    var map = new Map()
 
     var max = 0;
-    var l =0;
-    var r= 0;
-    var map = new Map();
+    var r = 0;
+    var l = 0;
 
 
 
     while(r < s.length){
         if(map.has(s[r])){
-           if(map.get(s[r]) >= l){
-            l = map.get(s[r]) + 1;
+            if(l <= map.get(s[r])){
+              l = map.get(s[r]) + 1;
             }
             
         }
-        map.set(s[r],r)
-        max = Math.max(max,r-l+1);
-        r++;
+        
+            map.set(s[r] , r)
+        
 
+        var len = r - l+1;
+            max = Math.max(len,max);
+            r++;
     }
 
-    return max;
-};
+
+  return max;
+}
