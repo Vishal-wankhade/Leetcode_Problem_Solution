@@ -20,10 +20,11 @@ var removeDuplicates = function(nums) {
             count++;
         }
     }
+
+   
+
     return count;
     console.log(nums)
-
-
 
 
 };
