@@ -3,13 +3,27 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
+    var pre = nums[0];
     var count = 1;
 
-   for(var i =1; i < nums.length; i++){
-    if(nums[i] !== nums[i-1]){
-         nums[count] = nums[i];
-         count++;
+    var l = 1;
+    var r = 1;
+
+    while(r < nums.length){
+        if( pre === nums[r]){
+            r++;
+        }else{
+            nums[l] = nums[r];
+            pre = nums[r];
+            l++;
+            r++;
+            count++;
+        }
     }
-   }
-   return count;
+    return count;
+    console.log(nums)
+
+
+
+
 };
