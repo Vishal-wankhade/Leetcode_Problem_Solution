@@ -18,5 +18,26 @@ var removeDuplicates = function(nums) {
     return i;
 
 
+//      var last = nums[i];
+
+// var i = 0;
+// var j = 1;
+
+// while(j < nums.length){
+//     if(nums[j] === last){
+//         j++;
+//     }
+//     else{
+//         last = nums[j];
+//         [nums[i],nums[j]]=[nums[j],nums[i]]
+//         i++;
+//         j++;
+        
+//     }
+// }
+// return nums;
+  
+
+
 
 };
