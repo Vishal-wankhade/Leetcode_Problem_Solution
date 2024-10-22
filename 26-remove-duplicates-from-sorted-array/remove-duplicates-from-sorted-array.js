@@ -3,28 +3,20 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    var pre = nums[0];
-    var count = 1;
-
-    var l = 1;
-    var r = 1;
-
-    while(r < nums.length){
-        if( pre === nums[r]){
-            r++;
-        }else{
-            nums[l] = nums[r];
-            pre = nums[r];
-            l++;
-            r++;
-            count++;
+    
+ if (nums.length === 0) return 0; // edge case: empty array
+    
+    let i = 1; // pointer for placing the next unique element
+    
+    for (let j = 1; j < nums.length; j++) {
+        if (nums[j] !== nums[j - 1]) {
+            nums[i] = nums[j];
+            i++;
         }
     }
+    
+    return i;
 
-   
-
-    return count;
-    console.log(nums)
 
 
 };
