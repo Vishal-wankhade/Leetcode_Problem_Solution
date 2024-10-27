@@ -3,40 +3,23 @@
  * @return {number}
  */
 var maxArea = function(height) {
+    
+    var n = height.length;
+    var start = 0;
+    var end = n-1;
 
+    var max = -1;
 
-   var left = 0;
-    var right = height.length - 1;
-    var max = 0;
+    while(start < end){
+        var h = Math.min(height[start], height[end]);
 
-    while(left < right){
-        var h = Math.min(height[left], height[right]);
-        var area = h * (right - left);
+        max = Math.max(max, h * (end - start) );
 
-        max = Math.max(area, max);
-
-        if(height[left] > height[right]){
-            right--;
-        } else {
-            left++;
+        if(height[start] < height[end]){
+            start++;
+        }else{
+            end--;
         }
     }
     return max;
-    //  var left = 0;
-    // var right = height.length - 1;
-    // var max = 0;
-
-    // while(left < right){
-    //     var h = Math.min(height[left], height[right]);
-    //     var area = h * (right - left);
-
-    //     max = Math.max(area, max);
-
-    //     if(height[left] > height[right]){
-    //         right--;
-    //     } else {
-    //         left++;
-    //     }
-    // }
-    // return max;
 };
