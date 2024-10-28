@@ -2,32 +2,28 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function(string) {
+    var map = new Map();
     
-    var map = new Map()
-
+    var left = 0;
+    
+    var right = 0;
     var max = 0;
-    var r = 0;
-    var l = 0;
-
-
-
-    while(r < s.length){
-        if(map.has(s[r])){
-            if(l <= map.get(s[r])){
-              l = map.get(s[r]) + 1;
+    
+    while(right < string.length){
+        if(map.has(string[right])){
+            if(left <= map.get(string[right])){
+                left = map.get(string[right]) + 1;
+                map.set(string[right],right);
             }
-            
         }
+             map.set(string[right],right);
+             max = Math.max(max,(right -left) + 1);
         
-            map.set(s[r] , r)
-        
-
-        var len = r - l+1;
-            max = Math.max(len,max);
-            r++;
+       
+        right++;
+        // console.log(map)
     }
-
-
-  return max;
-}
+    
+    return max;
+};
