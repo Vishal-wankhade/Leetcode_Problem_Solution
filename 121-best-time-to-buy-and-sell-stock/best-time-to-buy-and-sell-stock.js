@@ -4,17 +4,16 @@
  */
 var maxProfit = function(prices) {
     
-    var max = 0;
-    var buy = Infinity;
-    
-    for(var i =0; i < prices.length; i++){
-        if(prices[i] < buy){
-            buy = prices[i];
-        }
-        else{
-            var profit = prices[i] - buy;
-            max = Math.max(max, profit);
+    let maxProfit = 0;
+
+    let curSellDay = prices[0];
+
+    for(let i = 1; i < prices.length; i++){
+        if(prices[i] < curSellDay){
+            curSellDay = prices[i];
+        }else{
+            maxProfit = Math.max(maxProfit, prices[i] - curSellDay)
         }
     }
-    return max;
+    return maxProfit;
 };
