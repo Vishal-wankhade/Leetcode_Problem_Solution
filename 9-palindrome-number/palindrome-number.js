@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var isPalindrome = function(x) {
-    var str= x.toString();
+      var str= x.toString();
     console.log(str)
     var i = 0;
     var j = str.length-1;
