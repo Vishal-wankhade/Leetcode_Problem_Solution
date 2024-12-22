@@ -3,7 +3,7 @@
  * @return {number}
  */
 var romanToInt = function(s) {
-
+    
     var map = new Map();
 
     map.set('I' ,1);
