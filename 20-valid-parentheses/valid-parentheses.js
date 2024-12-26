@@ -3,7 +3,7 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-
+    
 
 var stack = [];
 
@@ -31,5 +31,4 @@ if(stack.length > 0){
 }else{
     return true;
 }
-
-}
+};
