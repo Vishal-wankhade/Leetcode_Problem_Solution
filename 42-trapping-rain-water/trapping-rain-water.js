@@ -3,6 +3,7 @@
  * @return {number}
  */
 var trap = function(height) {
+    
      let i = 0;
         let left_max = height[0];
         let sum = 0;
