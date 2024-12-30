@@ -4,7 +4,7 @@
  * @return {number}
  */
 var searchInsert = function(nums, target) {
-    let i; // 'i' for index position
+     let i; // 'i' for index position
     for(i=0;i<nums.length;i++) // scans the entire array for 'target'
     {
         if(nums[i]==target) // if 'target' found equal to 'nums[i]'
