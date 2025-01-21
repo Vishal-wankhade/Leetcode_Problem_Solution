@@ -4,25 +4,20 @@
  */
 var moveZeroes = function(nums) {
 
-   var l = 0;
-    var c =0;
+    var count = 0;
+    var idx = 0;
 
+    for(var i = 0; i < nums.length; i++){
+        if(nums[i] != 0){
+            nums[idx] = nums[i];
+            idx++;
+        }
+        count++;
+    }
 
-    for(var i =0 ; i < nums.length; i++){
-      if(nums[i] !== 0){
-        nums[l] = nums[i];
-        l++;
-      }else{
-        c++;
-      }
-    }
-    
-    if(c== 0) return nums;
-    
-    for(var i = nums.length - c; i < nums.length; i++){
-        nums[i] = 0;
-    }
-    
-    return nums;
+   while(idx < nums.length){
+    nums[idx] = 0;
+    idx++;
+   }
     
 };
