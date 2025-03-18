@@ -4,26 +4,18 @@
  * @return {number}
  */
 var subarraySum = function(nums, k) {
-
-    var map = new Map();
-    map.set(0,1);
-
-    var count = 0;
-    var removal = 0;
-    var prefixSum = 0;
-
-    for(var i =0; i < nums.length; i++){
-        prefixSum += nums[i]
-
-        removal = prefixSum - k;
-
-        if(map.has(removal)){
-            count += map.get(removal);
-        }
-
-       map.set(prefixSum , (map.get(prefixSum) || 0) + 1);
-
-    }
-    return count;
+  
+  let count = 0;
+  for(let i = 0; i < nums.length; i++){
+         let sum = 0;
+        
+       for(let j = i; j < nums.length; j++){
+         sum += nums[j];
+         if(sum == k){
+            count++;
+         }
+       }
+  }
+  return count;
     
 };
