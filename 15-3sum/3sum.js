@@ -4,7 +4,6 @@
  */
 var threeSum = function(nums) {
 
-
 var ans = [];
  nums = nums.sort((a,b) => a - b)
 var target = 0;
