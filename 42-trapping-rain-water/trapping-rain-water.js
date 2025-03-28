@@ -3,22 +3,30 @@
  * @return {number}
  */
 var trap = function(height) {
-    
-     let i = 0;
-        let left_max = height[0];
-        let sum = 0;
-        let j = height.length - 1;
-        let right_max = height[j];
-        while (i < j) {
-            if (left_max <= right_max) {
-                sum += left_max - height[i];
-                i++;
-                left_max = Math.max(left_max, height[i]);
-            } else {
-                sum += right_max - height[j];
-                j--;
-                right_max = Math.max(right_max, height[j]);
-            }
-        }
-        return sum;
+ let left = new Array(height.length);
+ let right = new Array(height.length);
+let total = 0;
+
+ left[0] = height[0];
+ right[right.length -1] =  height[height.length-1];
+
+
+ for(let i = 1;  i< height.length; i++){
+     left[i] = Math.max(height[i], left[i-1]);
+ }
+
+ for(let i = height.length - 2;  i >= 0; i--){
+     right[i] = Math.max(height[i], right[i+1]);
+ }
+
+ console.log(left);
+ console.log(right)
+
+ for(let i = 0; i< height.length; i++){
+     total += Math.min(left[i],right[i]) - height[i];
+ }
+ return total
+
+
+
 };
