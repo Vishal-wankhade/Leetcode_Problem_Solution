@@ -4,28 +4,25 @@
  */
 var maxArea = function(height) {
     
+  let left = 0; 
+  let right = height.length -1;
+
+  let max = -1;
 
 
-    let left  = 0;
-    let right = height.length - 1;
-    let sum = 0;
-    for(let i = 0; i< height.length; i++){
-       sum += height[i];
+  while(left < right){
+   
+    let h = Math.min(height[left], height[right]);
+    let w = right - left;
+   
+    max = Math.max(max, (h*w));
+
+    if(height[left] < height[right]){
+        left++;
+    }else{
+        right--;
     }
+  }
 
-    let max = 0;
-
-    while(left < right){
-
-        let curMin =  Math.min(height[left],height[right]);
-
-        max = Math.max(max, curMin*(right - left));
-
-        if(height[left] >= height[right]){
-            right--;
-        }else{
-            left++;
-        }
-    }
-    return max;
+  return max;
 };
