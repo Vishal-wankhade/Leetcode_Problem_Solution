@@ -3,7 +3,23 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-    const arr = nums.map((num)=>  num*num)
+    
+    let n = nums.length;
+    let arr = new Array(n);
 
-    return arr.sort((a,b)=> a -b)
+    let start = 0;
+    let end = n-1;
+
+    for(let pos = n-1; pos >=0; pos--){
+        if(Math.abs(nums[start]) < Math.abs(nums[end])){
+            let sqr = nums[end] * nums[end];
+            arr[pos] = sqr;
+            end--;
+        }else{
+            let sqr = nums[start] * nums[start];
+            arr[pos] = sqr;
+            start++;
+        }
+    }
+    return arr;
 };
