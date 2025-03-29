@@ -3,31 +3,25 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersection = function (nums1, nums2) {
+var intersection = function(nums1, nums2) {
+  
+    let n = nums1.length;
+    let m = nums2.length;
+    let ans = [];
 
-    let set1 = new Set(nums1)
-    let intersectionSet = new Set()
+    if(n <= m){
 
-    for (let i = 0; i < nums2.length; i++) {
-        if (set1.has(nums2[i])) {
-            intersectionSet.add(nums2[i])
+        for(let i = 0; i<n; i++){
+           if(nums2.includes(nums1[i]) && !ans.includes(nums1[i])){
+            ans.push(nums1[i])
+           }
+        }
+    }else{
+         for(let i = 0; i<m; i++){
+           if(nums1.includes(nums2[i]) && !ans.includes(nums2[i])){
+            ans.push(nums2[i])
+           }
         }
     }
-
-    return Array.from(intersectionSet)
-
-    // let result = new Array();
-
-    // var n = nums1.length;
-
-    // for(let i =0; i <n; i++){
-    //     if(nums2.includes(nums1[i]) && !result.includes(nums1[i])){
-    //         result.push(nums1[i]);
-    //     }
-    // }
-
-    // return result;
-
-
-
+    return ans;
 };
