@@ -3,16 +3,16 @@
  * @return {number}
  */
 var subsetXORSum = function(nums) {
-     return findSum(nums, 0, 0);
-};
-
-function findSum(nums, curInd, curNum) {
-    if (curInd === nums.length) {
-        return curNum;
+     const n = nums.length;
+    let total = 0;
+    for (let mask = 0; mask < (1 << n); mask++) {
+        let subsetXor = 0;
+        for (let i = 0; i < n; i++) {
+            if (mask & (1 << i)) {
+                subsetXor ^= nums[i];
+            }
+        }
+        total += subsetXor;
     }
-
-    let includeInXor = findSum(nums, curInd + 1, curNum ^ nums[curInd]);
-    let notIncludeInXor = findSum(nums, curInd + 1, curNum);
-
-    return includeInXor + notIncludeInXor;
+    return total;
 };
