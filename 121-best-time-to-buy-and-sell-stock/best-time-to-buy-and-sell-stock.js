@@ -3,17 +3,19 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    
-    let maxProfit = 0;
 
-    let curSellDay = prices[0];
+    let i =0;
+    let curSell = prices[0];
+    let profit = 0;
+    let maxProfit = profit;
 
-    for(let i = 1; i < prices.length; i++){
-        if(prices[i] < curSellDay){
-            curSellDay = prices[i];
-        }else{
-            maxProfit = Math.max(maxProfit, prices[i] - curSellDay)
+    while(i < prices.length){
+        if(curSell > prices[i]){
+            curSell = prices[i];
         }
+        profit = prices[i] - curSell;
+        maxProfit = Math.max(maxProfit,profit);
+        i++;
     }
     return maxProfit;
 };
