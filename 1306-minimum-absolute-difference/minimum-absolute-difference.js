@@ -2,24 +2,19 @@
  * @param {number[]} arr
  * @return {number[][]}
  */
-var minimumAbsDifference = function(arr) {
-
-
-     arr.sort((a, b) => a - b); // Step 1: Sort the array
+const minimumAbsDifference = arr => {
+    arr.sort((a, b) => a - b);
     let minDiff = Infinity;
-    let ans = [];
+    let temp = [];
 
-    for (let i = 0; i < arr.length - 1; i++) {
-        let curDiff = arr[i + 1] - arr[i];
-
-        if (curDiff < minDiff) {
-            minDiff = curDiff;
-            ans = [[arr[i], arr[i + 1]]]; // Reset result with new min diff pair
-        } else if (curDiff === minDiff) {
-            ans.push([arr[i], arr[i + 1]]); // Add to result if same min diff
-        }
+    for (let i = 1; i < arr.length; i++) {
+        const diff = arr[i] - arr[i - 1];
+        if (diff < minDiff) {
+            minDiff = diff;
+            temp = [i - 1];
+        } else if (diff === minDiff)
+            temp.push(i - 1);
     }
 
-    return ans;
-    
+    return temp.map(i => [arr[i], arr[i + 1]]);
 };
