@@ -1,0 +1,23 @@
+/**
+ * @param {number} turnedOn
+ * @return {string[]}
+ */
+const readBinaryWatch = k => {
+    if (k === 0) return ['0:00'];
+    const mask = (1 << 6) - 1;
+    let q = (1 << k) - 1;
+    const max = q << (10 - k);
+    const res = [];
+
+    while (q <= max) {
+        const min = q & mask;
+        const hour = q >> 6;
+        if (hour < 12 && min < 60)
+            res.push(`${hour}:${String(min).padStart(2, '0')}`);
+        const r = q & -q;
+        const n = q + r;
+        q = (((q ^ n) / r) >> 2) | n;
+    }
+
+    return res;
+};
